@@ -22,12 +22,9 @@ class Solution {
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         inorderMap = new HashMap<>();
-        // Map values to their indices in the inorder array for O(1) lookup
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);
         }
-        
-        // Start from the last element of postorder traversal
         postorderIndex = postorder.length - 1;
         
         return helper(inorder, postorder, 0, inorder.length - 1);
